@@ -14,6 +14,11 @@ class App extends React.Component {
         this.input_click = this.input_click.bind(this)
     }
 
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        if (this.state.help_text !== 'Help')
+            console.log('Some');
+    }
+
     render() {
         return (<div className="name">
                 <Header title={"Шапка сайта1"}/>
