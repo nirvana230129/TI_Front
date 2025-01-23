@@ -1,17 +1,19 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from 'react'
+import * as ReactDOMClient from 'react-dom/client';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+const input_click = () => console.log("Clicked")
+const mouse_over = () => console.log("Mouse Over")
+
+const help_text = "Help text"
+
+const elements = (<div className="name">
+    <h1>{help_text}</h1>
+    <input placeholder={help_text}
+           onClick={input_click}
+           onMouseEnter={mouse_over} />
+    <p>{help_text === "Help text!" ? "Yes" : "No"}</p>
+</div>)
+
+const app = ReactDOMClient.createRoot(document.getElementById('app'));
+app.render(elements)
