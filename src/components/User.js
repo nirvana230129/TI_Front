@@ -1,8 +1,7 @@
 import React from 'react'
-import User from "./User";
 
 
-class Users extends React.Component {
+class User extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -28,18 +27,15 @@ class Users extends React.Component {
     }
 
     render() {
-        if (this.state.users.length)
-            return (<div>
-                    {this.state.users.map((user, index) => (
-                        <User key={index} user={user} />
-                    ))}
-                </div>)
-        else
-            return (<div className='user'>
-                <h3>Пользователей нет</h3>
-            </div>)
+        return (<div className='user'>
+            <div className='user'>
+                <h3>{this.props.user.firstname} {this.props.user.lastname}</h3>
+                <p>{this.props.user.bio}</p>
+                <b>{this.props.user.isHappy ? 'Счастлив :)' : 'Не особо :('}</b>
+            </div>
+        </div>)
     }
 }
 
 
-export default Users
+export default User
