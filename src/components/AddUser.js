@@ -1,6 +1,8 @@
 import React from 'react'
 
 class AddUser extends React.Component {
+    user_to_add = {}
+
     constructor(props) {
         super(props)
         this.state = {
@@ -23,13 +25,16 @@ class AddUser extends React.Component {
                 <input type='checkbox' placeholder='счастлив' id='is_happy' onChange={(e) => this.setState({isHappy: e.target.checked})}/>
                 <button type='button' onClick={() => {
                     this.form.reset()
-                    this.props.onAddUser({
+                    this.user_to_add = {
                         firstname: this.state.firstname,
                         lastname: this.state.lastname,
                         bio: this.state.bio,
                         age: this.state.age,
                         isHappy: this.state.isHappy,
-                    })}
+                    }
+                    if (this.props.user)
+                        this.user_to_add.id = this.props.user.id
+                    this.props.onAddUser(this.user_to_add)}
                 }>Добавить</button>
             </form>
         )
