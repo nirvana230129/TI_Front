@@ -4,24 +4,37 @@ import Image from "./components/Image";
 import logo from './img/logo.jpg'
 
 class App extends React.Component {
-    help_text = "Help text"
+    constructor(props) {
+        super(props);
+        this.state = {
+            help_text: "Help text",
+            user_data: ""
+        }
+
+        this.input_click = this.input_click.bind(this)
+    }
 
     render() {
         return (<div className="name">
                 <Header title={"Шапка сайта1"}/>
                 <Header title={"Шапка сайта2"}/>
-                <h1>{this.help_text}</h1>
-                <input placeholder={this.help_text}
+                <h1>{this.state.help_text}</h1>
+                <h2>{this.state.user_data}</h2>
+                <input placeholder={this.state.help_text}
+                       onChange={event => this.setState({user_data: event.target.value})}
                        onClick={this.input_click}
                        onMouseEnter={this.mouse_over}/>
-                <p>{this.help_text === "Help text!" ? "Yes" : "No"}</p>
+                <p>{this.state.help_text === "Help text!" ? "Yes" : "No"}</p>
                 <Image image={logo}/>
             </div>
         )
     }
 
-    input_click() {console.log("Clicked")}
-    mouse_over() {console.log("Mouse Over")}
+    input_click() {
+        this.setState({help_text: 'Changed text!!!'})
+        console.log('Clicked')
+    }
+    mouse_over() {console.log('Mouse Over')}
 }
 
 
