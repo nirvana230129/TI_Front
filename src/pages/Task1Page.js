@@ -32,7 +32,7 @@ class Task1Page extends React.Component {
         //         console.error('There was an error!', error)
         //     })
 
-        this.setState({ result: '{RESULT_STRING}: ' + string + a + b + '!!!' })
+        this.setState({ result: '<<<' + string + a + b + '>>>' })
     }
 
     copyToClipboard() {
@@ -44,13 +44,13 @@ class Task1Page extends React.Component {
 
     render() {
         const { result } = this.state
-        let threshold_len = 80
+        let threshold_len = 180
         const displayResult = result.length > threshold_len ? result.substring(0, threshold_len) + '…' : result
 
         return (
             <div>
                 <h1>Задание 1</h1>
-                <p>Задача: введите строку, число a, число b. На выход — строка.</p>
+                <p className='description'>Задача: введите строку, число a, число b. На выход — строка.</p>
 
                 <form onSubmit={this.handleSubmit}>
                     <textarea
@@ -76,7 +76,7 @@ class Task1Page extends React.Component {
                 </form>
 
                 {this.state.result && (
-                    <div>
+                    <div className="result-container">
                         <h2>Результат:</h2>
                         <IoCopy onClick={this.copyToClipboard} className='copy-icon'></IoCopy>
                         <p>{displayResult}</p>
