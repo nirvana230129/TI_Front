@@ -9,7 +9,7 @@ class Task1Page extends React.Component {
 
         this.state = {
             string: '',
-            a: 0,
+            a: 1,
             b: 0,
             result: '',
         }
@@ -65,6 +65,7 @@ class Task1Page extends React.Component {
                         type='number'
                         value={this.state.a}
                         onChange={(e) => this.setState({a: e.target.value})}
+                        min={'1'}
                     />
                     <label htmlFor='num_b'>Вероятность помехи в каждом отдельном символе (0-100):</label>
                     <input
@@ -72,6 +73,8 @@ class Task1Page extends React.Component {
                         type='number'
                         value={this.state.b}
                         onChange={(e) => this.setState({b: e.target.value})}
+                        min={'0'}
+                        max={'100'}
                     />
                     <button type='submit'>Подтвердить</button>
                 </form>

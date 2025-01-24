@@ -10,9 +10,9 @@ class Task2Page extends React.Component {
         super(props)
 
         this.state = {
-            a: 0,
-            b1: 0,
-            b2: 0,
+            a: 1,
+            b1: 1,
+            b2: 2,
             c: 0,
             b: [],
             d: [],
@@ -83,6 +83,7 @@ class Task2Page extends React.Component {
                         type='number'
                         value={this.state.a}
                         onChange={(e) => this.setState({a: e.target.value})}
+                        min={'1'}
                     />
                     <label htmlFor='num_b1'>Число b1:</label>
                     <input
@@ -90,6 +91,7 @@ class Task2Page extends React.Component {
                         type='number'
                         value={this.state.b1}
                         onChange={(e) => this.setState({b1: e.target.value})}
+                        min={'1'}
                     />
                     <label htmlFor='num_b2'>Число b2:</label>
                     <input
@@ -97,6 +99,7 @@ class Task2Page extends React.Component {
                         type='number'
                         value={this.state.b2}
                         onChange={(e) => this.setState({b2: e.target.value})}
+                        min={'1'}
                     />
                     <label htmlFor='num_c'>Число c:</label>
                     <input
@@ -104,6 +107,8 @@ class Task2Page extends React.Component {
                         type='number'
                         value={this.state.c}
                         onChange={(e) => this.setState({c: e.target.value})}
+                        min={'0'}
+                        max={'100'}
                     />
                     <button type='submit'>Подтвердить</button>
                 </form>

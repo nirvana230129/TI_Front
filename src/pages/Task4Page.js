@@ -7,9 +7,9 @@ class Task4Page extends React.Component {
         super(props)
 
         this.state = {
-            a: 0,
-            b: 0,
-            c: 0,
+            a: 1,
+            b: 1,
+            c: 20,
             is_decrypted: false,
             c_is_generated: false,
             button_is_pressed: false,
@@ -56,6 +56,7 @@ class Task4Page extends React.Component {
                         type='number'
                         value={this.state.a}
                         onChange={(e) => this.setState({a: e.target.value})}
+                        min={'1'}
                     />
                     <label htmlFor='num_b'>Число b:</label>
                     <input
@@ -63,6 +64,7 @@ class Task4Page extends React.Component {
                         type='number'
                         value={this.state.b}
                         onChange={(e) => this.setState({b: e.target.value})}
+                        min={'1'}
                     />
                     <button type='button' onClick={this.generateRandomC}>Сгенерировать новое значение для переменной c</button>
                     <button type='submit'>Подтвердить</button>
