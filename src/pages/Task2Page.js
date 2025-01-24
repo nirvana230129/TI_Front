@@ -74,7 +74,7 @@ class Task2Page extends React.Component {
         return (
             <div>
                 <h1>Задание 2</h1>
-                <p className='description'>Задача: введите число a, число b1, число b2, число c. На выход — график.</p>
+                <p className='description'>Задача: введите число a, число b1, число b2, число c. На выход — график d(b).</p>
 
                 <form onSubmit={this.handleSubmit}>
                     <label htmlFor='num_a'>Число a:</label>
