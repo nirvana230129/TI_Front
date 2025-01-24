@@ -11,7 +11,7 @@ class Task3Page extends React.Component {
 
         this.state = {
             a1: 1,
-            a2: 1,
+            a2: 2,
             b: 1,
             c: 0,
             a: [],
@@ -91,7 +91,7 @@ class Task3Page extends React.Component {
                         type='number'
                         value={this.state.a2}
                         onChange={(e) => this.setState({a2: e.target.value})}
-                        min={'1'}
+                        min={'2'}
                     />
                     <label htmlFor='num_b'>Число b:</label>
                     <input

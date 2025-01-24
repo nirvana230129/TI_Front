@@ -99,7 +99,7 @@ class Task2Page extends React.Component {
                         type='number'
                         value={this.state.b2}
                         onChange={(e) => this.setState({b2: e.target.value})}
-                        min={'1'}
+                        min={'2'}
                     />
                     <label htmlFor='num_c'>Число c:</label>
                     <input
