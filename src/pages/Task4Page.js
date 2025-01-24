@@ -24,15 +24,15 @@ class Task4Page extends React.Component {
         if (this.state.c_is_generated) {
             const {a, b, c} = this.state
 
-            // axios.post('https://backend.com/api/task3', { a, b, c })
-            //     .then(response => {
-            //         this.setState({ is_decrypted: response.data.is_decrypted })
-            //     })
-            //     .catch(error => {
-            //         console.error('There was an error!', error)
-            //     })
+            axios.post('http://127.0.0.1:8000/task4', { a, b, c })
+                .then(response => {
+                    this.setState({ is_decrypted: response.data.is_decrypted })
+                })
+                .catch(error => {
+                    console.error('There was an error!', error)
+                })
 
-            this.setState({is_decrypted: this.state.c > 45, button_is_pressed: true})
+            this.setState({button_is_pressed: true})
             console.log(a, b, c, this.state.is_decrypted)
         }
     }
@@ -46,8 +46,8 @@ class Task4Page extends React.Component {
         return (
             <div>
                 <h1>Задание 4</h1>
-                <p className='description'>Задача: введите число a, число b, значение числа c выбирается случайно из
-                    диапазона [20; 70]. На выход — удалось декодировать или нет.</p>
+                <p className='description'>Задача: введите число a — длину строки, число b — число дополнительных
+                    символов, значение числа c выбирается случайно. На выход — удалось декодировать или нет.</p>
 
                 <form onSubmit={this.handleSubmit}>
                     <label htmlFor='num_a'>Число a:</label>

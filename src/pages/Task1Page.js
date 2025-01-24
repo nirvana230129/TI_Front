@@ -24,15 +24,15 @@ class Task1Page extends React.Component {
 
         console.log(string, a, b)
 
-        // axios.post('https://backend.com/api/task1', { string, a, b })
-        //     .then(response => {
-        //         this.setState({ result: response.data })
-        //     })
-        //     .catch(error => {
-        //         console.error('There was an error!', error)
-        //     })
-
-        this.setState({ result: '<<<' + string + a + b + '>>>' })
+        const aNumber = Number(a)
+        const bNumber = Number(b)
+        axios.post('http://127.0.0.1:8000/task1', { message: string, n: aNumber, c: bNumber })
+            .then(response => {
+                this.setState({ result: response.data.message })
+            })
+            .catch(error => {
+                console.error('There was an error!', error)
+            })
     }
 
     copyToClipboard() {
@@ -50,7 +50,8 @@ class Task1Page extends React.Component {
         return (
             <div>
                 <h1>Задание 1</h1>
-                <p className='description'>Задача: введите строку, число a, число b. На выход — строка.</p>
+                <p className='description'>Задача: введите строку, число дополнительных символов, вероятность помехи в
+                    каждом отдельном символе (0-100). На выход — строка.</p>
 
                 <form onSubmit={this.handleSubmit}>
                     <textarea
@@ -58,14 +59,14 @@ class Task1Page extends React.Component {
                         value={this.state.string}
                         onChange={(e) => this.setState({string: e.target.value})}
                     />
-                    <label htmlFor='num_a'>Число a:</label>
+                    <label htmlFor='num_a'>Число дополнительных символов:</label>
                     <input
                         id='num_a'
                         type='number'
                         value={this.state.a}
                         onChange={(e) => this.setState({a: e.target.value})}
                     />
-                    <label htmlFor='num_b'>Число b:</label>
+                    <label htmlFor='num_b'>Вероятность помехи в каждом отдельном символе (0-100):</label>
                     <input
                         id='num_b'
                         type='number'

@@ -28,18 +28,17 @@ class Task3Page extends React.Component {
 
         console.log(a1, a2, b, c)
 
-        // axios.post('https://backend.com/api/task3', { a1, a2, b, c })
-        //     .then(response => {
-        //         this.setState({
-        //             a: response.data.a,
-        //             d: response.data.d
-        //         })
-        //     })
-        //     .catch(error => {
-        //         console.error('There was an error!', error)
-        //     })
+        axios.post('http://127.0.0.1:8000/task3', { a1, a2, b, c })
+            .then(response => {
+                this.setState({
+                    a: response.data.a,
+                    d: response.data.d
+                })
+            })
+            .catch(error => {
+                console.error('There was an error!', error)
+            })
 
-        this.setState({ a: [1, 2, 3], d: [1, 4, 9]})
         this.setState({ is_drown: true})
     }
 
@@ -73,7 +72,9 @@ class Task3Page extends React.Component {
         return (
             <div>
                 <h1>Задание 3</h1>
-                <p className='description'>Задача: введите число a1, число a2, число b, число c. На выход — график d(a).</p>
+                <p className='description'>Задача: введите границы диапазона чисел a — длин строк: число a1, число a2;
+                    число b — число дополнительных символов; число с — вероятность помехи в каждом отдельном символе
+                    (0-100). На выход — график d(b).</p>
 
                 <form onSubmit={this.handleSubmit}>
                     <label htmlFor='num_a1'>Число a1:</label>
@@ -110,7 +111,7 @@ class Task3Page extends React.Component {
                 {this.state.is_drown && (
                     <div className="result-container">
                         <h2>Результат:</h2>
-                        <Line data={data} options={options} />
+                        <Line data={data} options={options}/>
                     </div>
                 )}
             </div>

@@ -28,18 +28,17 @@ class Task2Page extends React.Component {
 
         console.log(a, b1, b2, c)
 
-        // axios.post('https://backend.com/api/task2', { a, b1, b2, c })
-        //     .then(response => {
-        //         this.setState({
-        //             b: response.data.b,
-        //             d: response.data.d
-        //         })
-        //     })
-        //     .catch(error => {
-        //         console.error('There was an error!', error)
-        //     })
+        axios.post('http://127.0.0.1:8000/task2', { a, c, b1, b2 })
+            .then(response => {
+                this.setState({
+                    b: response.data.b,
+                    d: response.data.d
+                })
+            })
+            .catch(error => {
+                console.error('There was an error!', error)
+            })
 
-        this.setState({ b: [1, 2, 3], d: [1, 4, 9]})
         this.setState({ is_drown: true})
     }
 
@@ -73,7 +72,9 @@ class Task2Page extends React.Component {
         return (
             <div>
                 <h1>Задание 2</h1>
-                <p className='description'>Задача: введите число a, число b1, число b2, число c. На выход — график d(b).</p>
+                <p className='description'>Задача: введите число a — длину строки; границы диапазона чисел b — чисел
+                    дополнительных символов: число b1, число b2; число с — вероятность помехи в каждом отдельном символе
+                    (0-100). На выход — график d(b).</p>
 
                 <form onSubmit={this.handleSubmit}>
                     <label htmlFor='num_a'>Число a:</label>
