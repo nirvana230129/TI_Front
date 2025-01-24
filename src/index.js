@@ -5,9 +5,9 @@ import './css/main.css'
 import { BrowserRouter } from 'react-router-dom';
 
 
-const app = ReactDOMClient.createRoot(document.getElementById('app'));
+const app = ReactDOMClient.createRoot(document.getElementById('app'))
 app.render(
     <BrowserRouter>
         <App />
     </BrowserRouter>
-);
+)
