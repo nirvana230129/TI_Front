@@ -31,7 +31,6 @@ class Task2Page extends React.Component {
         // axios.post('https://backend.com/api/task2', { a, b1, b2, c })
         //     .then(response => {
         //         this.setState({
-        //             result: response.data,
         //             b: response.data.b,
         //             d: response.data.d
         //         })
