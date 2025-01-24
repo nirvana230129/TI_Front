@@ -55,9 +55,9 @@ class App extends React.Component {
                                                              onDeleteUser={this.deleteUser}/>} />
                     </Routes>
                 </main>
-                <aside>
-                    <AddUser onAddUser={this.addUser} />
-                </aside>
+                {/*<aside>*/}
+                {/*    <AddUser onAddUser={this.addUser} />*/}
+                {/*</aside>*/}
             </div>
         );
     }
