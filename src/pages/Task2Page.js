@@ -114,7 +114,6 @@ class Task2Page extends React.Component {
                         <Line data={data} options={options} />
                     </div>
                 )}
-
             </div>
         )
     }
