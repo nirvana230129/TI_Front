@@ -1,6 +1,7 @@
 import React from 'react'
 import axios from "axios"
 import {IoCopy} from "react-icons/io5"
+import NumberInput from "../components/NumberInput";
 
 
 class Task1Page extends React.Component {
@@ -60,22 +61,18 @@ class Task1Page extends React.Component {
                         onChange={(e) => this.setState({string: e.target.value})}
                         required
                     />
-                    <label htmlFor='num_n'>Число дополнительных символов:</label>
-                    <input
-                        id='num_n'
-                        type='number'
-                        value={this.state.n}
-                        onChange={(e) => this.setState({n: e.target.value})}
-                        min={'1'}
+                    <NumberInput label='Число дополнительных символов:'
+                                 id='num_n'
+                                 value={this.state.n}
+                                 onChange={(e) => this.setState({n: e.target.value})}
+                                 min={'1'}
                     />
-                    <label htmlFor='num_c'>Вероятность помехи в каждом отдельном символе (0-100):</label>
-                    <input
-                        id='num_c'
-                        type='number'
-                        value={this.state.c}
-                        onChange={(e) => this.setState({c: e.target.value})}
-                        min={'0'}
-                        max={'100'}
+                    <NumberInput label='Вероятность помехи в каждом отдельном символе (0-100):'
+                                 id='num_c'
+                                 value={this.state.c}
+                                 onChange={(e) => this.setState({c: e.target.value})}
+                                 min={'0'}
+                                 max={'100'}
                     />
                     <button type='submit'>Подтвердить</button>
                 </form>

@@ -2,6 +2,7 @@ import React from 'react'
 import axios from "axios"
 import { Line } from 'react-chartjs-2'
 import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend } from 'chart.js'
+import NumberInput from "../components/NumberInput";
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend)
 
@@ -79,38 +80,30 @@ class Task2Page extends React.Component {
                     (0-100). На выход — график d(b).</p>
 
                 <form onSubmit={this.handleSubmit}>
-                    <label htmlFor='num_a'>Число a:</label>
-                    <input
-                        id='num_a'
-                        type='number'
-                        value={this.state.a}
-                        onChange={(e) => this.setState({a: e.target.value})}
-                        min={'1'}
+                    <NumberInput label='Число a:'
+                                 id='num_a'
+                                 value={this.state.a}
+                                 onChange={(e) => this.setState({a: e.target.value})}
+                                 min={'1'}
                     />
-                    <label htmlFor='num_b1'>Число b1:</label>
-                    <input
-                        id='num_b1'
-                        type='number'
-                        value={this.state.b1}
-                        onChange={(e) => this.setState({b1: e.target.value})}
-                        min={'1'}
+                    <NumberInput label='Число b1:'
+                                 id='num_b1'
+                                 value={this.state.b1}
+                                 onChange={(e) => this.setState({b1: e.target.value})}
+                                 min={'1'}
                     />
-                    <label htmlFor='num_b2'>Число b2:</label>
-                    <input
-                        id='num_b2'
-                        type='number'
-                        value={this.state.b2}
-                        onChange={(e) => this.setState({b2: e.target.value})}
-                        min={'2'}
+                    <NumberInput label='Число b2:'
+                                 id='num_b2'
+                                 value={this.state.b2}
+                                 onChange={(e) => this.setState({b2: e.target.value})}
+                                 min={'2'}
                     />
-                    <label htmlFor='num_c'>Число c:</label>
-                    <input
-                        id='num_c'
-                        type='number'
-                        value={this.state.c}
-                        onChange={(e) => this.setState({c: e.target.value})}
-                        min={'0'}
-                        max={'100'}
+                    <NumberInput label='Число c:'
+                                 id='num_c'
+                                 value={this.state.c}
+                                 onChange={(e) => this.setState({c: e.target.value})}
+                                 min={'0'}
+                                 max={'100'}
                     />
                     <button type='submit'>Подтвердить</button>
                 </form>

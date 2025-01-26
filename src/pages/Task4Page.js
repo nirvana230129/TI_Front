@@ -1,5 +1,6 @@
 import React from 'react'
 import axios from "axios"
+import NumberInput from "../components/NumberInput";
 
 
 class Task4Page extends React.Component {
@@ -52,21 +53,17 @@ class Task4Page extends React.Component {
                     символов, значение числа c выбирается случайно. На выход — удалось декодировать или нет.</p>
 
                 <form onSubmit={this.handleSubmit}>
-                    <label htmlFor='num_a'>Число a:</label>
-                    <input
-                        id='num_a'
-                        type='number'
-                        value={this.state.a}
-                        onChange={(e) => this.setState({a: e.target.value})}
-                        min={'1'}
+                    <NumberInput label='Число a:'
+                                 id='num_a'
+                                 value={this.state.a}
+                                 onChange={(e) => this.setState({a: e.target.value})}
+                                 min={'1'}
                     />
-                    <label htmlFor='num_b'>Число b:</label>
-                    <input
-                        id='num_b'
-                        type='number'
-                        value={this.state.b}
-                        onChange={(e) => this.setState({b: e.target.value})}
-                        min={'1'}
+                    <NumberInput label='Число b:'
+                                 id='num_b'
+                                 value={this.state.b}
+                                 onChange={(e) => this.setState({b: e.target.value})}
+                                 min={'1'}
                     />
                     <button type='button' onClick={this.generateRandomC}>Сгенерировать новое значение для переменной c</button>
                     <button type='submit'>Подтвердить</button>
