@@ -16,11 +16,11 @@ class App extends React.Component {
                 <Header title="Задания" />
                 <main>
                     <Routes>
-                        <Route path="/" element={<Task1Page />} />
-                        <Route path="/task1" element={<Task1Page />} />
-                        <Route path="/task2" element={<Task2Page />} />
-                        <Route path="/task3" element={<Task3Page />} />
-                        <Route path="/task4" element={<Task4Page />} />
+                        <Route path="/" element={<Task1Page base_url='http://127.0.0.1:8000' />} />
+                        <Route path="/task1" element={<Task1Page base_url='http://127.0.0.1:8000' />} />
+                        <Route path="/task2" element={<Task2Page base_url='http://127.0.0.1:8000' />} />
+                        <Route path="/task3" element={<Task3Page base_url='http://127.0.0.1:8000' />} />
+                        <Route path="/task4" element={<Task4Page base_url='http://127.0.0.1:8000' />} />
                     </Routes>
                 </main>
             </div>

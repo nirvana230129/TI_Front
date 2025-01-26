@@ -22,13 +22,15 @@ class Task2Page extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this)
     }
 
+    path = '/task2'
+
     handleSubmit(event) {
         event.preventDefault()
         const { a, b1, b2, c} = this.state
 
         console.log(a, b1, b2, c)
 
-        axios.post('http://127.0.0.1:8000/task2', { a, c, b1, b2 })
+        axios.post(this.props.base_url + this.path, { a, b1, b2, c })
             .then(response => {
                 this.setState({
                     b: response.data.b,

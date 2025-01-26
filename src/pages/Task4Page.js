@@ -19,12 +19,14 @@ class Task4Page extends React.Component {
         this.generateRandomC = this.generateRandomC.bind(this)
     }
 
+    path = '/task4'
+
     handleSubmit(event) {
         event.preventDefault()
         if (this.state.c_is_generated) {
             const {a, b, c} = this.state
 
-            axios.post('http://127.0.0.1:8000/task4', { a, b, c })
+            axios.post(this.props.base_url + this.path, { a, b, c })
                 .then(response => {
                     this.setState({ is_decrypted: response.data.is_decrypted })
                 })

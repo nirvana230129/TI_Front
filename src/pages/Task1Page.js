@@ -9,8 +9,8 @@ class Task1Page extends React.Component {
 
         this.state = {
             string: '',
-            a: 1,
-            b: 0,
+            n: 1,
+            c: 0,
             result: '',
         }
 
@@ -18,15 +18,15 @@ class Task1Page extends React.Component {
         this.copyToClipboard = this.copyToClipboard.bind(this)
     }
 
+    path = '/task1'
+
     handleSubmit(event) {
         event.preventDefault()
-        const { string, a, b } = this.state
+        const { string, n, c } = this.state
 
-        console.log(string, a, b)
+        console.log(string, n, c)
 
-        const aNumber = Number(a)
-        const bNumber = Number(b)
-        axios.post('http://127.0.0.1:8000/task1', { message: string, n: aNumber, c: bNumber })
+        axios.post(this.props.base_url + this.path, { message: string, n, c })
             .then(response => {
                 this.setState({ result: response.data.message })
             })
@@ -58,21 +58,22 @@ class Task1Page extends React.Component {
                         placeholder='Строка'
                         value={this.state.string}
                         onChange={(e) => this.setState({string: e.target.value})}
+                        required
                     />
-                    <label htmlFor='num_a'>Число дополнительных символов:</label>
+                    <label htmlFor='num_n'>Число дополнительных символов:</label>
                     <input
-                        id='num_a'
+                        id='num_n'
                         type='number'
-                        value={this.state.a}
-                        onChange={(e) => this.setState({a: e.target.value})}
+                        value={this.state.n}
+                        onChange={(e) => this.setState({n: e.target.value})}
                         min={'1'}
                     />
-                    <label htmlFor='num_b'>Вероятность помехи в каждом отдельном символе (0-100):</label>
+                    <label htmlFor='num_c'>Вероятность помехи в каждом отдельном символе (0-100):</label>
                     <input
-                        id='num_b'
+                        id='num_c'
                         type='number'
-                        value={this.state.b}
-                        onChange={(e) => this.setState({b: e.target.value})}
+                        value={this.state.c}
+                        onChange={(e) => this.setState({c: e.target.value})}
                         min={'0'}
                         max={'100'}
                     />
