@@ -2,7 +2,8 @@ import React from 'react'
 import axios from "axios"
 import NumberInput from "../components/NumberInput";
 import TaskDescription from "../components/TaskDescription";
-
+import ResultContainer from "../components/ResultContainer";
+import ResultString from "../components/ResultString";
 
 class Task4Page extends React.Component {
     constructor(props) {
@@ -72,10 +73,9 @@ class Task4Page extends React.Component {
                 </form>
 
                 {this.state.c_is_generated && this.state.button_is_pressed && (
-                    <div className="result-container">
-                        <h2>Результат:</h2>
-                        <p>{this.state.is_decrypted? 'Удалось декодировать ✅' : 'Не удалось декодировать ❌'}</p>
-                    </div>
+                    <ResultContainer result={
+                        <ResultString string={this.state.is_decrypted? 'Удалось декодировать ✅': 'Не удалось декодировать ❌'} />
+                    } />
                 )}
             </div>
         )

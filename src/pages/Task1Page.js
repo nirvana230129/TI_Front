@@ -1,24 +1,23 @@
 import React from 'react'
 import axios from "axios"
-import {IoCopy} from "react-icons/io5"
 import NumberInput from "../components/NumberInput";
 import StringInput from "../components/StringInput";
 import TaskDescription from "../components/TaskDescription";
-
+import ResultContainer from "../components/ResultContainer";
+import ResultString from "../components/ResultString";
 
 class Task1Page extends React.Component {
     constructor(props) {
         super(props)
 
         this.state = {
-            string: '',
+            string: 'qwerty',
             n: 1,
             c: 0,
             result: '',
         }
 
         this.handleSubmit = this.handleSubmit.bind(this)
-        this.copyToClipboard = this.copyToClipboard.bind(this)
     }
 
     path = '/task1'
@@ -35,13 +34,6 @@ class Task1Page extends React.Component {
             })
             .catch(error => {
                 console.error('There was an error!', error)
-            })
-    }
-
-    copyToClipboard() {
-        navigator.clipboard.writeText(this.state.result)
-            .catch(err => {
-                console.error('Ошибка при копировании: ', err)
             })
     }
 
@@ -79,13 +71,10 @@ class Task1Page extends React.Component {
                 </form>
 
                 {this.state.result && (
-                    <div className="result-container">
-                        <h2>Результат:</h2>
-                        <IoCopy onClick={this.copyToClipboard} className='copy-icon'></IoCopy>
-                        <p>{displayResult}</p>
-                    </div>
+                    <ResultContainer result={
+                        <ResultString string={displayResult} showButton={true} />
+                    } />
                 )}
-
             </div>
         )
     }

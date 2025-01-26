@@ -1,11 +1,9 @@
 import React from 'react'
 import axios from "axios"
-import { Line } from 'react-chartjs-2'
-import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend } from 'chart.js'
 import NumberInput from "../components/NumberInput";
 import TaskDescription from "../components/TaskDescription";
-
-ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend)
+import ResultContainer from "../components/ResultContainer";
+import ResultGraph from "../components/ResultGraph";
 
 class Task2Page extends React.Component {
     constructor(props) {
@@ -47,32 +45,6 @@ class Task2Page extends React.Component {
     }
 
     render() {
-        const data = {
-            labels: this.state.b,
-            datasets: [
-                {
-                    label: 'График d от b',
-                    data: this.state.d,
-                    fill: false,
-                    backgroundColor: 'rgba(75,192,192,0.4)',
-                    borderColor: 'rgba(75,192,192,1)',
-                }
-            ]
-        }
-
-        const options = {
-            responsive: true,
-            plugins: {
-                legend: {
-                    position: 'top',
-                },
-                title: {
-                    display: true,
-                    text: 'График d от b',
-                },
-            },
-        }
-
         return (
             <div>
                 <TaskDescription taskNumber='2'
@@ -112,10 +84,9 @@ class Task2Page extends React.Component {
                 </form>
 
                 {this.state.is_drown && (
-                    <div className="result-container">
-                        <h2>Результат:</h2>
-                        <Line data={data} options={options} />
-                    </div>
+                    <ResultContainer result={
+                        <ResultGraph x={this.state.b} y={this.state.d} label='График d(b)'/>
+                    } />
                 )}
             </div>
         )
