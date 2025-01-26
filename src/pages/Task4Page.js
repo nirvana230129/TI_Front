@@ -4,6 +4,7 @@ import NumberInput from "../components/NumberInput";
 import TaskDescription from "../components/TaskDescription";
 import ResultContainer from "../components/ResultContainer";
 import ResultString from "../components/ResultString";
+import SubmitButton from "../components/SubmitButton";
 
 class Task4Page extends React.Component {
     constructor(props) {
@@ -69,7 +70,7 @@ class Task4Page extends React.Component {
                                  min={'1'}
                     />
                     <button type='button' onClick={this.generateRandomC}>Сгенерировать новое значение для переменной c</button>
-                    <button type='submit'>Подтвердить</button>
+                    <SubmitButton />
                 </form>
 
                 {this.state.c_is_generated && this.state.button_is_pressed && (

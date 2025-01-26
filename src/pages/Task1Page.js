@@ -5,6 +5,7 @@ import StringInput from "../components/StringInput";
 import TaskDescription from "../components/TaskDescription";
 import ResultContainer from "../components/ResultContainer";
 import ResultString from "../components/ResultString";
+import SubmitButton from "../components/SubmitButton";
 
 class Task1Page extends React.Component {
     constructor(props) {
@@ -67,7 +68,7 @@ class Task1Page extends React.Component {
                                  min={'0'}
                                  max={'100'}
                     />
-                    <button type='submit'>Подтвердить</button>
+                    <SubmitButton />
                 </form>
 
                 {this.state.result && (

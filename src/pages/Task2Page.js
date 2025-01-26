@@ -4,6 +4,7 @@ import NumberInput from "../components/NumberInput";
 import TaskDescription from "../components/TaskDescription";
 import ResultContainer from "../components/ResultContainer";
 import ResultGraph from "../components/ResultGraph";
+import SubmitButton from "../components/SubmitButton";
 
 class Task2Page extends React.Component {
     constructor(props) {
@@ -80,7 +81,7 @@ class Task2Page extends React.Component {
                                  min={'0'}
                                  max={'100'}
                     />
-                    <button type='submit'>Подтвердить</button>
+                    <SubmitButton />
                 </form>
 
                 {this.state.is_drown && (
