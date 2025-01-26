@@ -3,6 +3,7 @@ import axios from "axios"
 import {IoCopy} from "react-icons/io5"
 import NumberInput from "../components/NumberInput";
 import StringInput from "../components/StringInput";
+import TaskDescription from "../components/TaskDescription";
 
 
 class Task1Page extends React.Component {
@@ -51,10 +52,11 @@ class Task1Page extends React.Component {
 
         return (
             <div>
-                <h1>Задание 1</h1>
-                <p className='description'>Задача: введите строку, число дополнительных символов, вероятность помехи в
-                    каждом отдельном символе (0-100). На выход — строка.</p>
-
+                <TaskDescription taskNumber='1'
+                                 inputDescription='введите строку, число дополнительных символов, вероятность помехи в
+                    каждом отдельном символе (0-100).'
+                                 outputDescription='строка.'
+                />
                 <form onSubmit={this.handleSubmit}>
                     <StringInput placeholder='Строка'
                                  value={this.state.string}

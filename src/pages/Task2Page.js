@@ -3,6 +3,7 @@ import axios from "axios"
 import { Line } from 'react-chartjs-2'
 import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend } from 'chart.js'
 import NumberInput from "../components/NumberInput";
+import TaskDescription from "../components/TaskDescription";
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend)
 
@@ -74,10 +75,12 @@ class Task2Page extends React.Component {
 
         return (
             <div>
-                <h1>Задание 2</h1>
-                <p className='description'>Задача: введите число a — длину строки; границы диапазона чисел b — чисел
+                <TaskDescription taskNumber='2'
+                                 inputDescription='введите число a — длину строки; границы диапазона чисел b — чисел
                     дополнительных символов: число b1, число b2; число с — вероятность помехи в каждом отдельном символе
-                    (0-100). На выход — график d(b).</p>
+                    (0-100).'
+                                 outputDescription='график d(b).'
+                />
 
                 <form onSubmit={this.handleSubmit}>
                     <NumberInput label='Число a:'

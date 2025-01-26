@@ -1,6 +1,7 @@
 import React from 'react'
 import axios from "axios"
 import NumberInput from "../components/NumberInput";
+import TaskDescription from "../components/TaskDescription";
 
 
 class Task4Page extends React.Component {
@@ -48,10 +49,11 @@ class Task4Page extends React.Component {
     render() {
         return (
             <div>
-                <h1>Задание 4</h1>
-                <p className='description'>Задача: введите число a — длину строки, число b — число дополнительных
-                    символов, значение числа c выбирается случайно. На выход — удалось декодировать или нет.</p>
-
+                <TaskDescription taskNumber='4'
+                                 inputDescription='введите число a — длину строки, число b — число дополнительных
+                    символов, значение числа c — вероятности помехи в каждом отдельном символе — выбирается случайно.'
+                                 outputDescription='удалось декодировать или нет.'
+                />
                 <form onSubmit={this.handleSubmit}>
                     <NumberInput label='Число a:'
                                  id='num_a'
