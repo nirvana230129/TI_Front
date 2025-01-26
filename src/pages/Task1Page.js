@@ -2,6 +2,7 @@ import React from 'react'
 import axios from "axios"
 import {IoCopy} from "react-icons/io5"
 import NumberInput from "../components/NumberInput";
+import StringInput from "../components/StringInput";
 
 
 class Task1Page extends React.Component {
@@ -55,11 +56,9 @@ class Task1Page extends React.Component {
                     каждом отдельном символе (0-100). На выход — строка.</p>
 
                 <form onSubmit={this.handleSubmit}>
-                    <textarea
-                        placeholder='Строка'
-                        value={this.state.string}
-                        onChange={(e) => this.setState({string: e.target.value})}
-                        required
+                    <StringInput placeholder='Строка'
+                                 value={this.state.string}
+                                 onChange={(e) => this.setState({string: e.target.value})}
                     />
                     <NumberInput label='Число дополнительных символов:'
                                  id='num_n'
