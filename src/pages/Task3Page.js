@@ -5,6 +5,7 @@ import TaskDescription from "../components/TaskDescription";
 import ResultContainer from "../components/ResultContainer";
 import ResultGraph from "../components/ResultGraph";
 import SubmitButton from "../components/SubmitButton";
+import Table from "../components/Table";
 
 class Task3Page extends React.Component {
     constructor(props) {
@@ -17,7 +18,10 @@ class Task3Page extends React.Component {
             c: 0,
             a: [],
             d: [],
+            tableData: [],
+            batch: null,
             is_drown: false,
+            isLoading: false,
         }
 
         this.handleSubmit = this.handleSubmit.bind(this)
@@ -29,20 +33,29 @@ class Task3Page extends React.Component {
         event.preventDefault()
         const { a1, a2, b, c } = this.state
 
-        console.log(a1, a2, b, c)
+        this.setState({ isLoading: true });
 
         axios.post(this.props.base_url + this.path, { a1, a2, b, c })
             .then(response => {
                 this.setState({
                     a: response.data.a,
-                    d: response.data.d
+                    d: response.data.d,
+                    tableData:
+                        {
+                            "original": response.data.original,
+                            "encoded": response.data.encoded,
+                            "corrupted": response.data.corrupted,
+                            "decoded": response.data.decoded,
+                        },
+                    batch: response.data.batch,
+                    is_drown: true,
+                    isLoading: false,
                 })
             })
             .catch(error => {
                 console.error('There was an error!', error)
+                this.setState({ isLoading: false });
             })
-
-        this.setState({ is_drown: true})
     }
 
     render() {
@@ -84,12 +97,21 @@ class Task3Page extends React.Component {
                     <SubmitButton />
                 </form>
 
-                {this.state.is_drown && (
-                    <ResultContainer result={
-                        <ResultGraph x={this.state.a} y={this.state.d} label='График d(a)'/>
-                    } />
+                {this.state.isLoading ? (
+                    <p>Loading...</p>
+                ) : (
+                    this.state.is_drown && (
+                        <ResultContainer result={
+                            <>
+                                <ResultGraph x={this.state.a} y={this.state.d} label='График d(a)'/>
+                                <Table
+                                    stringsData={this.state.tableData} batch={this.state.batch}
+                                    a={this.state.a} b={this.state.b} c={this.state.c} d={this.state.d}
+                                />
+                            </>
+                        } />
+                    )
                 )}
-
             </div>
         )
     }

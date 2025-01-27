@@ -5,6 +5,7 @@ import TaskDescription from "../components/TaskDescription";
 import ResultContainer from "../components/ResultContainer";
 import ResultString from "../components/ResultString";
 import SubmitButton from "../components/SubmitButton";
+import Table from "../components/Table";
 
 class Task4Page extends React.Component {
     constructor(props) {
@@ -14,9 +15,11 @@ class Task4Page extends React.Component {
             a: 1,
             b: 1,
             c: 20,
+            tableData: [],
             is_decrypted: false,
             c_is_generated: false,
             button_is_pressed: false,
+            isLoading: false,
         }
 
         this.handleSubmit = this.handleSubmit.bind(this)
@@ -30,16 +33,27 @@ class Task4Page extends React.Component {
         if (this.state.c_is_generated) {
             const {a, b, c} = this.state
 
+            this.setState({ isLoading: true });
+
             axios.post(this.props.base_url + this.path, { a, b, c })
                 .then(response => {
-                    this.setState({ is_decrypted: response.data.is_decrypted })
+                    this.setState({
+                        is_decrypted: response.data.is_decrypted,
+                        tableData:
+                            {
+                                "original": response.data.original,
+                                "encoded": response.data.encoded,
+                                "corrupted": response.data.corrupted,
+                                "decoded": response.data.decoded,
+                            },
+                        isLoading: false,
+                        button_is_pressed: true,
+                    })
                 })
                 .catch(error => {
                     console.error('There was an error!', error)
+                    this.setState({ isLoading: false });
                 })
-
-            this.setState({button_is_pressed: true})
-            console.log(a, b, c, this.state.is_decrypted)
         }
     }
 
@@ -73,10 +87,17 @@ class Task4Page extends React.Component {
                     <SubmitButton />
                 </form>
 
-                {this.state.c_is_generated && this.state.button_is_pressed && (
-                    <ResultContainer result={
-                        <ResultString string={this.state.is_decrypted? 'Удалось декодировать ✅': 'Не удалось декодировать ❌'} />
-                    } />
+                {this.state.isLoading ? (
+                    <p>Loading...</p>
+                ) : (
+                    this.state.c_is_generated && this.state.button_is_pressed && (
+                        <ResultContainer result={
+                            <>
+                                <ResultString string={this.state.is_decrypted? 'Удалось декодировать ✅': 'Не удалось декодировать ❌'} />
+                                <Table stringsData={this.state.tableData} a={this.state.a} b={this.state.b} />
+                            </>
+                        } />
+                    )
                 )}
             </div>
         )

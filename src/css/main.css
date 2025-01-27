@@ -104,3 +104,34 @@ form button:hover {
 .result-container .copy-icon:hover {
     opacity: 0.5;
 }
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px; /* Отступ сверху */
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px; /* Отступы внутри ячеек */
+    text-align: center; /* Центрирование текста */
+}
+
+th {
+    background-color: #232323; /* Цвет фона заголовков */
+    padding: 12px; /* Больше отступов для заголовков */
+}
+
+table tr td:nth-child(1) {
+    background-color: #232323; /* Цвет фона для нулевого столбца */
+    padding: 12px; /* Больше отступов для нулевого столбца */
+}
+
+tr:nth-child(even) {
+    background-color: #2c2c2c; /* Цвет фона для четных строк */
+}
+
+tr:not(.header-row):hover {
+    /*background-color: #f1f1f1; !* Цвет фона при наведении *!*/
+    opacity: 0.8;
+}
