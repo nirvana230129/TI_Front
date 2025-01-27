@@ -42,8 +42,7 @@ main {
 }
 
 .description {
-    margin-top: 10px;
-    margin-bottom: 25px;
+    margin: 10px 0 25px;
 }
 
 form input,
@@ -92,7 +91,6 @@ form button:hover {
 }
 
 .result-container .copy-icon {
-    float: right;
     margin-left: auto;
     margin-right: 25px;
     color: #ffffff;
@@ -123,8 +121,8 @@ th {
 }
 
 table tr td:nth-child(1) {
-    background-color: #232323; /* Цвет фона для нулевого столбца */
-    padding: 12px; /* Больше отступов для нулевого столбца */
+    background-color: #232323; /* Цвет фона для первого столбца */
+    padding: 12px; /* Больше отступов для первого столбца */
 }
 
 tr:nth-child(even) {

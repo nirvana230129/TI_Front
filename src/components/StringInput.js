@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 const StringInput = ({ placeholder, value, onChange }) => {
     return (
@@ -8,7 +8,7 @@ const StringInput = ({ placeholder, value, onChange }) => {
             onChange={onChange}
             required
         />
-    )
-}
+    );
+};
 
-export default StringInput
+export default StringInput;

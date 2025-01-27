@@ -1,5 +1,5 @@
-import React from 'react'
-import {Link} from 'react-router-dom'
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Header = ({ title }) => {
     return (
@@ -12,7 +12,7 @@ const Header = ({ title }) => {
                 <Link to="/task4">Task 4</Link>
             </nav>
         </header>
-    )
-}
+    );
+};
 
-export default Header
+export default Header;

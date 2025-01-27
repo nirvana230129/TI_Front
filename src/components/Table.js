@@ -1,24 +1,10 @@
-import React from 'react'
+import React from 'react';
 
 const Table = ({ stringsData, a = null, b = null, c = null, d = null, batch = null }) => {
-
-    const { original, encoded, corrupted, decoded } = stringsData
-
-    console.log('stringsData: ', stringsData)
-    console.log('original: ', original)
-    console.log('encoded: ', encoded)
-    console.log('corrupted: ', corrupted)
-    console.log('decoded: ', decoded)
-    console.log('a: ', a)
-    console.log('b: ', b)
-    console.log('c: ', c)
-    console.log('d: ', d)
-    console.log('batch: ', batch)
-    console.log('iterableVarIndex: ', batch !== null ? 'ok' : null)
-    console.log(Array.isArray(a), Array.isArray(b), Array.isArray(c), Array.isArray(d))
+    const { original, encoded, corrupted, decoded } = stringsData;
 
     const rows = original.map((item, index) => {
-        const iterableVarIndex = batch !== null ? Math.floor(index / batch) : null
+        const iterableVarIndex = batch !== null ? Math.floor(index / batch) : null;
         return {
             a: Array.isArray(a) ? a[iterableVarIndex] : a,
             b: Array.isArray(b) ? b[iterableVarIndex] : b,
@@ -28,8 +14,8 @@ const Table = ({ stringsData, a = null, b = null, c = null, d = null, batch = nu
             encoded: encoded[index],
             corrupted: corrupted[index],
             decoded: decoded[index],
-        }
-    })
+        };
+    });
 
     return (
         <table border="1">
@@ -62,7 +48,7 @@ const Table = ({ stringsData, a = null, b = null, c = null, d = null, batch = nu
             ))}
             </tbody>
         </table>
-    )
-}
+    );
+};
 
-export default Table
+export default Table;

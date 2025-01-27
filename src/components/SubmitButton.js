@@ -1,7 +1,11 @@
-import React from 'react'
+import React from 'react';
 
 const SubmitButton = () => {
-    return <button type='submit'>Подтвердить</button>
-}
+    return (
+        <button type="submit">
+            Подтвердить
+        </button>
+    );
+};
 
-export default SubmitButton
+export default SubmitButton;

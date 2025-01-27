@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 const ResultContainer = ({ result }) => {
     return (
@@ -6,7 +6,7 @@ const ResultContainer = ({ result }) => {
             <h2>Результат:</h2>
             {result}
         </div>
-    )
-}
+    );
+};
 
-export default ResultContainer
+export default ResultContainer;
